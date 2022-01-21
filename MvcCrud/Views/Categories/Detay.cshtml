@@ -1,0 +1,45 @@
+﻿@model MvcCrud.Models.Dto.CategoriesModel
+@{
+	ViewBag.Title = "Detay";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="text-center">DETAY</h2>
+<hr />
+<div>
+	<dl class="dl-horizontal">
+		<dt>
+			@*Baslıgı Getırmek Icın*@
+			@Html.DisplayNameFor(m => m.categories.CategoryID)
+		</dt>
+		<dd>
+			@*Veriyi Getırmek ıcın*@
+			<div class="alert alert-success" role="alert">
+				<strong>@Html.DisplayFor(m => m.categories.CategoryID)</strong>
+			</div>
+		</dd>
+		<dt>
+			@Html.DisplayNameFor(m => m.categories.CategoryName)
+		</dt>
+		<dd>
+			<div class="alert alert-success" role="alert">
+				<strong>@Html.DisplayFor(m => m.categories.CategoryName)</strong>
+			</div>
+		</dd>
+		<dt>
+			@Html.DisplayNameFor(m => m.categories.Description)
+		</dt>
+		<dd>
+			<div class="alert alert-success" role="alert">
+				<strong>@Html.DisplayFor(m => m.categories.Description)</strong>
+			</div>
+		</dd>
+	</dl>
+</div>
+<p>
+	<div class="alert alert-warning" role="alert">
+		<strong>@Html.ActionLink("Listeye Geri Dön", "Liste")</strong>
+	</div>
+	@*Listeye Geri Don*@
+</p>
+

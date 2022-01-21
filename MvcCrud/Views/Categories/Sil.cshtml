@@ -1,0 +1,26 @@
+﻿@model MvcCrud.Models.Dto.CategoriesModel
+
+@{
+    ViewBag.Title = "Sil";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="alert alert-danger" role="alert">
+	<strong>Silmek İstediğinize Emin Misiniz?</strong>
+</div>
+<div>
+   
+
+    <dl class="dl-horizontal">
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions m-2">
+            <input type="submit" value="Sil" class="btn btn-danger" /> |  
+            @Html.ActionLink("Listeye Geri Dön", "Liste")
+        </div>
+    }
+</div>
