@@ -1,0 +1,43 @@
+﻿@model MvcCrud.Models.Dto.ProductModel
+
+@{
+    ViewBag.Title = "Sil";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="alert alert-danger" role="alert">
+    <strong>Silmek İstediğinize Emin Misiniz?</strong>
+</div>
+<div>
+
+
+    <dl class="dl-horizontal">
+        <dt>@Html.DisplayNameFor(model => model.Products.ProductID)</dt>
+        <dd>@Html.DisplayFor(model => model.Products.ProductID)</dd>
+        <br />
+        <dt>@Html.DisplayNameFor(model => model.Products.ProductName)</dt>
+        <dd>@Html.DisplayFor(model => model.Products.ProductName)</dd>
+        <br />
+        <dt>@Html.DisplayNameFor(model => model.Products.Categories.CategoryName)</dt>
+        <dd>@Html.DisplayFor(model => model.Products.Categories.CategoryName)</dd>
+        <br />
+        <dt>@Html.DisplayNameFor(model => model.Products.Suppliers.CompanyName)</dt>
+        <dd>@Html.DisplayFor(model => model.Products.Suppliers.CompanyName)</dd>
+        <br />
+        <dt>@Html.DisplayNameFor(model => model.Products.UnitPrice)</dt>
+        <dd>@Html.DisplayFor(model => model.Products.UnitPrice)</dd>
+        <br />
+        <dt>@Html.DisplayNameFor(model => model.Products.Discontinued)</dt>
+        <dd>@Html.DisplayFor(model => model.Products.Discontinued)</dd>
+        <br />
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+@Html.AntiForgeryToken()
+
+                <div class="form-actions m-2">
+                    <input type="submit" value="Sil" class="btn btn-danger" /> |
+                    @Html.ActionLink("Listeye Geri Dön", "Liste")
+                </div>}
+</div>

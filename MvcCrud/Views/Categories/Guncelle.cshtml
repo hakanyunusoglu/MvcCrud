@@ -7,36 +7,38 @@
 
 @using (Html.BeginForm())
 {
-@Html.AntiForgeryToken()
+    @Html.AntiForgeryToken()
 
-<div class="form-horizontal">
-    <h4>CategoriesModel</h4>
-    <hr />
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    <div class="form-group">
-        @Html.LabelFor(x => x.categories.CategoryName, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(x => x.categories.CategoryName, new { htmlAttributes = new { @class = "form-control" } })
+    <div class="form-horizontal">
+        <h4>CategoriesModel</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(x => x.categories.CategoryName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(x => x.categories.CategoryName, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
         </div>
+        <br />
+        <div class="form-group">
+            @Html.LabelFor(x => x.categories.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(x => x.categories.Description, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+        <br />
     </div>
     <div class="form-group">
-        @Html.LabelFor(x => x.categories.Description, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(x => x.categories.Description, new { htmlAttributes = new { @class = "form-control" } })
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="col-md-2">
-            <input class="btn btn-success" type="submit" value="KAYDET" />
-        </div>
+        <div class="alert alert-success col-md-2" role="alert">
+            <strong><input type="submit" value="Save" class="btn btn-default" /></strong>
         </div>
     </div>
 }
 
-    <p>
-        <div class="alert alert-warning" role="alert">
-            <strong>@Html.ActionLink("Listeye Geri Dön", "Liste")</strong>
-        </div>
-        @*Listeye Geri Don*@
+<p>
+    <div class="alert alert-warning" role="alert">
+        <strong>@Html.ActionLink("Listeye Geri Dön", "Liste")</strong>
+    </div>
+    @*Listeye Geri Don*@
 
-    </p>
+</p>

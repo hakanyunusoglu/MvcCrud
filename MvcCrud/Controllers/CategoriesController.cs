@@ -28,19 +28,56 @@ namespace MvcCrud.Controllers
             model.categories = db.Categories.Find(id);
             return View(model);
         }
+        [HttpGet]
         public ActionResult Guncelle(int id)
         {
             model.categories = db.Categories.Find(id);
             return View(model);
 
         }
+        [HttpPost]
+        public ActionResult Guncelle(int id, CategoriesModel cm)
+        {
+            if(ModelState.IsValid)
+            {
+                Categories SecCategory = db.Categories.Find(id);
+                SecCategory.CategoryName = cm.categories.CategoryName;
+                SecCategory.Description = cm.categories.Description;
+                db.SaveChanges();
+                return RedirectToAction("Liste");
+            }
+            else
+            {
+                return View();
+            }
+        }
+        [HttpGet]
         public ActionResult Sil(int id)
         {
-            var urun = db.Categories.Find(id);
-            db.Categories.Remove(urun);
+            model.categories = db.Categories.Find(id);
+            return View(model);
+        }
+        [HttpPost]
+        public ActionResult Sil(int id, bool deger=true)
+        {
+            Categories c = db.Categories.Find(id);
+            db.Categories.Remove(c);
+            db.SaveChanges();
 
-
+            return RedirectToAction("Liste");
+        }
+        [HttpGet]
+        public ActionResult Ekle()
+        {
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult Ekle (CategoriesModel cm)
+        {
+            db.Entry(cm.categories).State = System.Data.Entity.EntityState.Added;
+            db.SaveChanges();
+            return RedirectToAction("Liste");
         }
     }
 }

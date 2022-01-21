@@ -1,0 +1,66 @@
+﻿@model MvcCrud.Models.Dto.ProductModel
+@{ ViewBag.Title = "Detay";
+                Layout = "~/Views/Shared/_Layout.cshtml"; }
+
+<h2 class="text-center">DETAY</h2>
+<hr />
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @*Baslıgı Getırmek Icın*@
+            @Html.DisplayNameFor(m => m.Products.ProductID)
+        </dt>
+        <dd>
+            @*Veriyi Getırmek ıcın*@
+            <div class="alert alert-success col-md-3" role="alert">
+                <strong>@Html.DisplayFor(m => m.Products.ProductID)</strong>
+            </div>
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(m => m.Products.ProductName)
+        </dt>
+        <dd>
+            <div class="alert alert-success col-md-3" role="alert">
+                <strong>@Html.DisplayFor(m => m.Products.ProductName)</strong>
+            </div>
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(m => m.Products.Categories.CategoryName)
+        </dt>
+        <dd>
+            <div class="alert alert-success col-md-3" role="alert">
+                <strong>@Html.DisplayFor(m => m.Products.Categories.CategoryName)</strong>
+            </div>
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(m => m.Products.Suppliers.CompanyName)
+        </dt>
+        <dd>
+            <div class="alert alert-success col-md-3" role="alert">
+                <strong>@Html.DisplayFor(m => m.Products.Suppliers.CompanyName)</strong>
+            </div>
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(m => m.Products.UnitPrice)
+        </dt>
+        <dd>
+            <div class="alert alert-success col-md-3" role="alert">
+                <strong>@Html.DisplayFor(m => m.Products.UnitPrice)</strong>
+            </div>
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(m => m.Products.Discontinued)
+        </dt>
+        <dd>
+            <div class="alert alert-success col-md-3" role="alert">
+                <strong>@Html.DisplayFor(m => m.Products.Discontinued)</strong>
+            </div>
+        </dd>
+    </dl>
+</div>
+<p>
+    <div class="alert alert-warning" role="alert">
+        <strong>@Html.ActionLink("Listeye Geri Dön", "Liste")</strong>
+    </div>
+    @*Listeye Geri Don*@
+</p>

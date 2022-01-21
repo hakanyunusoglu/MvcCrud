@@ -1,0 +1,73 @@
+﻿@model MvcCrud.Models.Dto.ProductModel
+
+@{
+    ViewBag.Title = "Guncelle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Guncelle</h2>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <h4>CategoriesModel</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(x => x.Products.ProductID, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(x => x.Products.ProductID, new { htmlAttributes = new { @class = "form-control col-md-3" } })
+        </div>
+    </div>
+    <br />
+    <div class="form-group">
+        @Html.LabelFor(x => x.Products.ProductName, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(x => x.Products.ProductName, new { htmlAttributes = new { @class = "form-control col-md-3" } })
+        </div>
+    </div>
+    <br />
+    <div class="form-group">
+        @Html.LabelFor(x => x.Products.Categories.CategoryName, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(x => x.Products.Categories.CategoryName, new { htmlAttributes = new { @class = "form-control col-md-3" } })
+        </div>
+    </div>
+    <br />
+    <div class="form-group">
+        @Html.LabelFor(x => x.Products.Suppliers.CompanyName, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(x => x.Products.Suppliers.CompanyName, new { htmlAttributes = new { @class = "form-control col-md-3" } })
+        </div>
+    </div>
+    <br />
+    <div class="form-group">
+        @Html.LabelFor(x => x.Products.UnitPrice, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(x => x.Products.UnitPrice, new { htmlAttributes = new { @class = "form-control col-md-3" } })
+        </div>
+    </div>
+    <br />
+    <div class="form-group">
+        @Html.LabelFor(x => x.Products.Discontinued, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(x => x.Products.Discontinued, new { htmlAttributes = new { @class = "form-control col-md-3" } })
+        </div>
+    </div>
+    <br />
+</div>
+    <div class="form-group">
+        <div class="alert alert-success col-md-2" role="alert">
+            <strong><input type="submit" value="Save" class="btn btn-default" /></strong>
+        </div>
+    </div>
+}
+
+<p>
+    <div class="alert alert-warning" role="alert">
+        <strong>@Html.ActionLink("Listeye Geri Dön", "Liste")</strong>
+    </div>
+    @*Listeye Geri Don*@
+
+</p>

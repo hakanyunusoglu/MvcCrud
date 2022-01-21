@@ -138,13 +138,13 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Categories\Liste.cshtml" />
     <Content Include="Views\Categories\Detay.cshtml" />
-    <Content Include="Views\Categories\Guncelle.cshtml" />
     <Content Include="Views\Categories\Sil.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -158,6 +158,8 @@
       <DependentUpon>Northwind.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Dto\CategoriesModel.cs" />
+    <Compile Include="Models\Dto\ProductModel.cs" />
+    <Compile Include="Models\Dto\ProductsDto.cs" />
     <Compile Include="Models\Employees.cs">
       <DependentUpon>Northwind.tt</DependentUpon>
     </Compile>
@@ -248,6 +250,13 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Scripts\jquery-3.6.0.slim.min.map" />
     <Content Include="Scripts\jquery-3.6.0.min.map" />
+    <Content Include="Views\Categories\Ekle.cshtml" />
+    <Content Include="Views\Categories\Guncelle.cshtml" />
+    <Content Include="Views\Product\Liste.cshtml" />
+    <Content Include="Views\Product\Detay.cshtml" />
+    <Content Include="Views\Product\Guncelle.cshtml" />
+    <Content Include="Views\Product\Sil.cshtml" />
+    <Content Include="Views\Product\Ekle.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
