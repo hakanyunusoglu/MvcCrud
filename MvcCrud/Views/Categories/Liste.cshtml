@@ -16,14 +16,9 @@
 
 
 <div class="row">
-    <br />
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-2">
-            <button type="button" class="btn btn-info"><a href="~/Views/Categories/Ekle.cshtml">Kategori Ekle</a></button>
-        </div>
-    </div>
     <div class="col-md-12">
         <div class="accordion-collapse small">
+            <a class="btn btn-info float-right" href="/Product/Ekle">Yeni Kayıt</a>
             <table class="table table-hover">
                 <thead>
                     <tr class="table-active">
@@ -42,7 +37,8 @@
             <th><a href="/Categories/Detay/@item.CategoryID" class="btn btn-primary">DETAY</a></th>
             <th><a href="/Categories/Guncelle/@item.CategoryID" class="btn btn-success">GÜNCELLE</a></th>
             <th><a href="/Categories/Sil/@item.CategoryID" class="btn btn-danger">SİL</a></th>
-        </tr>}
+        </tr>
+}
                 </tbody>
             </table>
         </div>

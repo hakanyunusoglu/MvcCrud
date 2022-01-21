@@ -23,8 +23,8 @@ namespace MvcCrud.Controllers
             CompanyName = x.Suppliers.CompanyName,
             ProductID = x.ProductID,
             ProductName = x.ProductName,
-             Discontunied = x.Discontinued,
-             UnitPrice = (decimal)x.UnitPrice}).ToList();
+            Discontunied = x.Discontinued,
+            UnitPrice = (decimal)x.UnitPrice}).ToList();
             return View(p);
         }
         public ActionResult Detay(int id)
@@ -36,22 +36,30 @@ namespace MvcCrud.Controllers
         public ActionResult Guncelle(int id)
         {
             p.Products = db.Products.Find(id);
+            p.CategoriesForDropDown = DoldurCat();
+            p.SuppliersForDropDown = DoldurSup();
             return View(p);
 
         }
         [HttpPost]
         public ActionResult Guncelle(int id, ProductModel pm)
         {
+            //db.Entry(pm.Products).State = System.Data.Entity.EntityState.Modified;
+            //db.SaveChanges();
+            //return RedirectToAction("Liste");
+
             if (ModelState.IsValid)
             {
                 Products SecProduct = db.Products.Find(id);
                 SecProduct.ProductID = pm.Products.ProductID;
                 SecProduct.ProductName = pm.Products.ProductName;
-                SecProduct.Categories.CategoryName = pm.Products.Categories.CategoryName;
-                SecProduct.Suppliers.CompanyName = pm.Products.Suppliers.CompanyName;
-                SecProduct.UnitPrice =(decimal) pm.Products.UnitPrice;
+                SecProduct.CategoryID = pm.Products.CategoryID;
+                SecProduct.SupplierID = pm.Products.SupplierID;
+                SecProduct.UnitPrice = (decimal)pm.Products.UnitPrice;
                 SecProduct.Discontinued = pm.Products.Discontinued;
                 db.SaveChanges();
+
+
                 return RedirectToAction("Liste");
             }
             else
@@ -77,7 +85,9 @@ namespace MvcCrud.Controllers
         [HttpGet]
         public ActionResult Ekle()
         {
-            return View();
+            p.CategoriesForDropDown = DoldurCat();
+            p.SuppliersForDropDown = DoldurSup();
+            return View(p);
         }
 
         [HttpPost]
@@ -86,6 +96,25 @@ namespace MvcCrud.Controllers
             db.Entry(pm.Products).State = System.Data.Entity.EntityState.Added;
             db.SaveChanges();
             return RedirectToAction("Liste");
+        }
+
+        [HttpGet]
+        private List<SelectListItem> DoldurSup()
+        {
+            return db.Suppliers.Select(x => new SelectListItem()
+            {
+                Text = x.CompanyName,
+                Value = x.SupplierID.ToString()
+            }).ToList();
+        }
+        [HttpGet]
+        private List<SelectListItem> DoldurCat()
+        {
+            return db.Categories.Select(x => new SelectListItem()
+            {
+                Text = x.CategoryName,
+                Value = x.CategoryID.ToString()
+            }).ToList();
         }
     }
 }

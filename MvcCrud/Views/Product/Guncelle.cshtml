@@ -31,14 +31,14 @@
     <div class="form-group">
         @Html.LabelFor(x => x.Products.Categories.CategoryName, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(x => x.Products.Categories.CategoryName, new { htmlAttributes = new { @class = "form-control col-md-3" } })
+            @Html.DropDownListFor(x => x.Products.CategoryID, Model.CategoriesForDropDown, new { htmlAttribute = new { @class = "form-control" } })
         </div>
     </div>
     <br />
     <div class="form-group">
         @Html.LabelFor(x => x.Products.Suppliers.CompanyName, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(x => x.Products.Suppliers.CompanyName, new { htmlAttributes = new { @class = "form-control col-md-3" } })
+           @Html.DropDownListFor(x=>x.Products.SupplierID, Model.SuppliersForDropDown, new {htmlAttribute = new {@class="form-control"}})
         </div>
     </div>
     <br />
@@ -49,18 +49,17 @@
         </div>
     </div>
     <br />
-    <div class="form-group">
-        @Html.LabelFor(x => x.Products.Discontinued, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(x => x.Products.Discontinued, new { htmlAttributes = new { @class = "form-control col-md-3" } })
+    <div class="form-check form-switch">
+        @Html.LabelFor(x => x.Products.Discontinued, htmlAttributes: new { @class = "form-check-label col-md-2" })
+        <div class="col-md-3">
+            @*<input class="form-check-input" type="checkbox" role="switch" id="Discontinued" name="Discontinued">*@
+            @Html.CheckBoxFor(x => x.Products.Discontinued, new { htmlAttributes = new { @class = "form-check-input" , @role="switch"} })
         </div>
     </div>
     <br />
 </div>
     <div class="form-group">
-        <div class="alert alert-success col-md-2" role="alert">
-            <strong><input type="submit" value="Save" class="btn btn-default" /></strong>
-        </div>
+        <input type="submit" value="Save" class="btn btn-success" />
     </div>
 }
 
